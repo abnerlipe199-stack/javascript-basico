@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplos de Escopo em JavaScript</title>
+    <script>
+        alert("Estou no HEAD...");
+    </script>
+</head>
+<body>
+    <h1>Estudos de Escopo: var, let e const</h1>
+
+    <script>
+        console.log("Erro de português...");
+
+        var x = "Valor1";
+        let y = "Valor2";
+        var z = "Valor3";
+        // A instrução abaixo gera erro se descomentada:
+        // let y = "valor4"; // Identifier 'y' has already been declared
+
+        let a = 1;
+        a = 2;
+        const b = 1;
+        // A instrução abaixo gera erro se descomentada:
+        // b = 2; // Assignment to constant variable.
+
+        console.log("Teste com VAR");
+        for (var i = 0; i < 5; i++) {
+            console.log("Dentro do for: " + i);
+        }
+        console.log("Fora do for: " + i); // 5 (var vaza o escopo do bloco)
+
+        console.log("Teste com LET");
+        for (let j = 0; j < 5; j++) {
+            console.log("Dentro do for: " + j);
+        }
+        // console.log("Fora do for: " + j); // ReferenceError: j is not defined
+
+        console.log("Teste das funções");
+        function exemploVar() {
+            var w = 0;
+            for (w = 0; w < 5; w++) {
+                console.log("Ex var: " + w);
+            }
+            console.log("Ex var fora do bloco: " + w); // 5
+        }
+        exemploVar();
+
+        function exemploLet() {
+            for (let m = 0; m < 5; m++) {
+                console.log("Ex let: " + m);
+            }
+        }
+        exemploLet();
+    </script>
+</body>
+</html>
